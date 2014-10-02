@@ -152,7 +152,7 @@ class autoptimizeStyles extends autoptimizeBase {
 			foreach($media as $elem) {
 				if(!isset($this->csscode[$elem]))
 					$this->csscode[$elem] = '';
-				$this->csscode[$elem] .= "\n/*FILESTART*/".$css;
+				$this->csscode[$elem] .= "\n/*FILESTART*/\n".$css;
 			}
 		}
 		
