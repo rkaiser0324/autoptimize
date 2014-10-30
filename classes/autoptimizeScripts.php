@@ -94,10 +94,14 @@ class autoptimizeScripts extends autoptimizeBase {
 							$tag = '';
 						}
 					}
-				} else {
+				} elseif (preg_match('#^<script(.*)type=(.*)text/html#',$tag)) {
+                                    // This is a Javascript template tag.  Do not touch it.
+                                    $tag = '';                                   
+                                } else {
 					// Inline script
 					// unhide comments, as javascript may be wrapped in comment-tags for old times' sake
 					$tag = $this->restore_comments($tag);
+                                        
 					if($this->ismergeable($tag) && ( apply_filters('autoptimize_js_include_inline',true) )) {
 						preg_match('#<script.*>(.*)</script>#Usmi',$tag,$code);
 						$code = preg_replace('#.*<!\[CDATA\[(?:\s*\*/)?(.*)(?://|/\*)\s*?\]\]>.*#sm','$1',$code[1]);
