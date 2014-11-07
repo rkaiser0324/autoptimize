@@ -99,7 +99,7 @@ if (get_option('autoptimize_show_adv','0')=='1') {
 <th scope="row"><?php _e('Exclude scripts from Autoptimize:','autoptimize'); ?></th>
 <td><label for="autoptimize_js_exclude">
         <textarea style="height:100px;width:100%;" name="autoptimize_js_exclude"><?php echo get_option('autoptimize_js_exclude',"s_sid,smowtion_size,sc_project,WAU_,wau_add,comment-form-quicktags,edToolbar,ch_client,nonce,post_id"); ?></textarea><br />
-<?php _e('A comma-seperated list of scripts you want to exclude from being optimized, for example \'whatever.js, another.js\' (without the quotes) to exclude those scripts from being aggregated and minimized by Autoptimize.','autoptimize'); ?></label></td>
+<?php _e('A comma-separated list of scripts you want to exclude from being optimized, for example \'whatever.js, another.js\' (without the quotes) to exclude those scripts from being aggregated and minimized by Autoptimize.  You can also list strings that appear in inline Javascript to exclude that.','autoptimize'); ?></label></td>
 </tr>
 <tr valign="top" class="hidden js_sub ao_adv">
 <th scope="row"><?php _e('Add try-catch wrapping?','autoptimize'); ?></th>
