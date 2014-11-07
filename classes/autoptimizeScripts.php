@@ -193,6 +193,7 @@ class autoptimizeScripts extends autoptimizeBase {
 					$this->jscode = $tmp_jscode;
 					unset($tmp_jscode);
 				}
+                                $this->jscode = sprintf("// %s \n", $_SERVER["REQUEST_URI"]) . $this->jscode;
 				return true;
 			} else {
 				return false;
@@ -251,6 +252,7 @@ class autoptimizeScripts extends autoptimizeBase {
 		// Restore noptimize
 		$this->content = $this->restore_noptimize($this->content);
 
+                //$this->content = '/*'
 		// Return the modified HTML
 		return $this->content;
 	}
