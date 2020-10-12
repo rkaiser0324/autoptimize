@@ -954,7 +954,7 @@ class autoptimizeStyles extends autoptimizeBase
                 continue;
             }
 
-            $md5   = $this->hashmap[ md5( $code ) ];
+            $md5   = $this->hashmap[ md5( preg_replace('@^<aodebug>(.+)</aodebug>@msiU', '', $code) ) ];
             $cache = new autoptimizeCache( $md5, 'css' );
             if ( ! $cache->check() ) {
                 // Cache our code.

@@ -508,7 +508,7 @@ class autoptimizeScripts extends autoptimizeBase
         }
 
         // Check for already-minified code.
-        $this->md5hash = md5( $this->jscode );
+        $this->md5hash = md5(preg_replace('@^<aodebug>(.+)</aodebug>@msiU', '', $this->jscode));
         $ccheck        = new autoptimizeCache( $this->md5hash, 'js' );
         if ( $ccheck->check() ) {
             $this->jscode = $ccheck->retrieve();
